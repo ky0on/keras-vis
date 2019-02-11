@@ -12,6 +12,12 @@ import keras
 from keras.models import load_model
 from keras.layers import advanced_activations, Activation
 
+# GPU
+from keras.backend import tensorflow_backend
+config = tf.ConfigProto(gpu_options=tf.GPUOptions(
+    allow_growth=True))
+session = tf.Session(config=config)
+tensorflow_backend.set_session(session)
 
 # Register all classes with `advanced_activations` module
 _ADVANCED_ACTIVATIONS = set()
